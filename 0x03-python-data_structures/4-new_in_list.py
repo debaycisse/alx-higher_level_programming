@@ -9,5 +9,5 @@ def new_in_list(my_list, idx, element):
         if i == idx:
             new_l.append(element)
         else:
-            new_l.append(my_list[i])	
+            new_l.append(my_list[i])
     return new_l
