@@ -19,36 +19,36 @@ class Node:
         Args:
             data (int): this is an integer that must be stored.
             next_node (pointer): points to the next node in a linked list
-		"""
+        """
         self.__data = data
         self.__next_node = next_node
 
     @property
     def data(self):
-    """This method retrievs the value of the data attribute.
+        """This method retrievs the value of the data attribute.
 
-    It serves as a getter method for the data attribute
+        It serves as a getter method for the data attribute
 
-    Returns:
-        The value of the data is returned.
-    """
-    return (self.__data)
+        Returns:
+            The value of the data is returned.
+        """
+        return (self.__data)
 
     @data.setter
     def data(self, value):
-    """This method updates the value of the data field.
+        """This method updates the value of the data field.
 
-    It serves as the setter for the data attribute.
+        It serves as the setter for the data attribute.
 
-    Args:
-        value (int): the value to be used in updating the data attribute
+        Args:
+            value (int): the value to be used in updating the data attribute
 
-    Raises:
-        TypeError: this is raised if the given value is not an integer type
-    """
-    if type(value) is not int:
-        raise TypeError("data must be an integer")
-	self.__data = value
+        Raises:
+            TypeError: this is raised if the given value is not an integer type
+        """
+        if isinstance(value, int) is False:
+            raise TypeError("data must be an integer")
+        self.__data = value
 
     @property
     def next_node(self):
@@ -70,7 +70,7 @@ class Node:
             TypeError: this is raised if the value is having
             neither a None of Node type
         """
-        if (type(value) is not None) or (type(value) is not Node):
+        if (value is not None) and (isinstance(value, Node) is False):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -81,7 +81,6 @@ class SinglyLinkedList:
     It is going to contains the structure of a node type.
     """
 
-
     # this is the header of a linked list
     head = None
 
@@ -90,7 +89,29 @@ class SinglyLinkedList:
 
         It is going to contain a list of values in the list instance
         """
-        SinglyLinkedList.head = []
+        SinglyLinkedList.head = None
+
+    def __iter__(self):
+        """This is a default iteration method for every instance of the class.
+
+        It fetches each data in this list, esepcially when the print
+        function tries to print an object of this class.
+
+        Returns:
+            Each data, stored in this list is returned
+        """
+        self.__current_node = SinglyLinkedList.head
+        return (self.__current_node)
+
+    def __next__(self):
+        """This is an iterator method that return each data field in the list.
+        """
+        if self.__current_node is not None:
+            while self.__current_node is not None:
+                yield self.__current_node.data
+                self.__current_node = self.__current_node.next_node
+        else:
+            yield None
 
     def sorted_insert(self, value):
         """This method inserts a node and sorts their value, based on
@@ -100,7 +121,29 @@ class SinglyLinkedList:
         value (Node pointer): this contains the data that is to be
         stored in this linked list.
         """
-        a_node = Node(value)
-        if SinglyLinkedList.head == None:
-            a_node.next_node = None
-            SinglyLinkedList.head = a_node
+        new_node = Node(value)
+        current_node = SinglyLinkedList.head
+        prev_node = None
+        counter = 0
+        if current_node is None:
+            new_node.next_node = None
+            SinglyLinkedList.head = new_node
+        elif current_node is not None:
+            while current_node is not None:
+                if value > current_node.data:
+                    counter += 1
+                    prev_node = current_node
+                    current_node = current_node.next_node
+                    if current_node is None:
+                        prev_node.next_node = new_node
+                        new_node.next_node = None
+                        break
+                elif value < current_node.data and counter == 0:
+                    new_node.next_node = SinglyLinkedList.head
+                    SinglyLinkedList.head = new_node
+                    break
+                elif value < current_node.data and counter > 0:
+                    new_node.next_node = current_node
+                    prev_node.next_node = new_node
+                    break
+                break
