@@ -10,7 +10,7 @@ the ``add_integer`` function.
 It also contains a set of test that are executable to ensure that
 the ``add_integer`` meets the requirements
 
-    >>> from ../0-add_integer import add_integer
+    >>> add_integer = __import__('0-add_integer').add_integer
 
     >>> print(add_integer(1, 2))
     3
