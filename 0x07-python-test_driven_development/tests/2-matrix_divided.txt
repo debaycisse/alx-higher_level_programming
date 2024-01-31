@@ -23,18 +23,22 @@ function meets its requirement.
     >>> print(matrix)
     [[1, 2, 3], [4, 5, 6]]
 
-    >>> matrix_divide([[1, 2], 2, 2], 3)
-    Traceback (most recent call last):
-    TypeError: Each row of the matrix must have the same size
-
-    >>> matrix_divide([[1, 2], [3, 4], None], 8)
+    >>> matrix_divided([[1, 2], 2, 2], 3)
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-    >>> matrix_divide([[1, 2], [3, 4], [5, 6]], True)
+    >>> matrix_divided([[1, 2], [3, 4], None], 8)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[1, 2], [3, 4], [5, 6]], True)
     Traceback (most recent call last):
     TypeError: div must be a number
 
-    >>> matrix_divide([[1, 2], [3, 4], [5, 6]], 0)
+    >>> matrix_divided([[1, 2], [3, 4], [5, 6]], 0)
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
+
+    >>> matrix_divided([[1, 2], [2, 4, 6], [1, 2]], 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
