@@ -1,0 +1,29 @@
+The ``5-text_indentation`` module
+=================================
+
+Using ``text_indentation`` function
+-----------------------------------
+
+This help file provides a set of demonstrations with which the
+function's requirement is validated to have been met.
+
+Below are the list of respective test cases to
+validate the ``text_indentation`` function
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+    
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> try:
+    ...     text_indentation(456)
+    ... except Exception as e:
+    ...     print(e)
+    text must be a string
+
+    >>> text_indentation("Lorem ipsum. Lorem ipsum")
+    Lorem ipsum.
+    <BLANKLINE>
+    Lorem ipsum
