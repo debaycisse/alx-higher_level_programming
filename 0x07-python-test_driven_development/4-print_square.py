@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """The print_square module.
 
 This module contains the defintition of the print_square function.
