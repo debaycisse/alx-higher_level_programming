@@ -1,0 +1,39 @@
+The ``1-my_list`` module
+========================
+
+This module houses the definition of the ``MyList`` class and its methods
+
+The ``MyList`` class
+--------------------
+
+This class contains the definition of the logic that makes the ``MyList`` class and its methods.
+
+Below are different examples that demonstrate the usage of the class
+
+    >>> MyList = __import__('1-my_list').MyList
+ 
+    >>> my_list = MyList()
+
+    >>> my_list2 = MyList([11, 12, 13, 14, 15])
+
+    >>> print(my_list2)
+    [11, 12, 13, 14, 15]
+
+    >>> my_list2.print_sorted()
+    [11, 12, 13, 14, 15]
+
+    >>> my_list.append(1)
+
+    >>> my_list.append(4)
+
+    >>> my_list.append(2)
+
+    >>> my_list.append(3)
+
+    >>> my_list.append(5)
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
