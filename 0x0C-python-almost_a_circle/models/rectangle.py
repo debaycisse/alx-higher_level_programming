@@ -127,3 +127,11 @@ class Rectangle(b.Base):
                     print("#")
                 else:
                     print("#", end="")
+
+    def __str__(self):
+        """This method handles a call from the print and str function
+        to an instance of this class.
+        """
+        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                self.id, self.x, self.y,
+                                                self.width, self.height)
