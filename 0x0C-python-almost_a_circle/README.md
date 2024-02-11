@@ -1,8 +1,9 @@
 # Python - Almost A Circle
 
-This project contains the a must-learn learning materials and is to prepare us for the AirBnB project.
+This project contains a list of a must-learn concepts and is to prepare me as an ALX SWE learner for the AirBnB project.
 
-This directory houses a set of tasks, related to the following concepts in python.
+This directory houses a set of tasks, related to the following concepts in python:
+
  * Import
  * Exceptions
  * Class
