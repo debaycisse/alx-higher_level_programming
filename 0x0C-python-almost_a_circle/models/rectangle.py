@@ -121,7 +121,13 @@ class Rectangle(b.Base):
         """This method displays the shape of a rectangle based on an
         instance's value for both width and height attributes,
         using # for the drawing."""
+        if self.__y > 0:
+            for h in range(self.__y):
+                print()
         for i in range(self.__height):
+            if self.__x > 0:
+                for g in range(self.__x):
+                    print(" ", end="")
             for j in range(self.__width):
                 if j+1 == self.__width:
                     print("#")
