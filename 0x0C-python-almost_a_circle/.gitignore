@@ -1,0 +1,6 @@
+__pycache__
+models/__pycache__
+classes/__pycache__
+tests/__pycache__
+test_models/__pycache__
+test_classes/__pycache__
