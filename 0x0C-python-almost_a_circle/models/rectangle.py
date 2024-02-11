@@ -108,3 +108,11 @@ class Rectangle(b.Base):
             value: the value with which the value of y is updated.
         """
         super().integer_validator("y", value)
+
+    def area(self):
+        """This method computes the area of an instance of this class.
+
+        Returns:
+            The value of the area computation for an instance.
+        """
+        return (self.__width * self.__height)
