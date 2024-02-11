@@ -142,7 +142,7 @@ class Rectangle(b.Base):
                                                 self.id, self.x, self.y,
                                                 self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """This method updates the values of all the five attributes
         of an instance of this class.
 
@@ -152,6 +152,22 @@ class Rectangle(b.Base):
         """
         if len(args) > 0:
             for num in range(len(args)):
+                if num == 0:
+                    self.id = args[num]
+                elif num == 1:
+                    super().integer_validator("width", args[num])
+                    self.__width = args[num]
+                elif num == 2:
+                    super().integer_validator("height", args[num])
+                    self.__height = args[num]
+                elif num == 3:
+                    super().integer_validator("x", args[num])
+                    self.__x = args[num]
+                elif num == 4:
+                    super().integer_validator("y", args[num])
+                    self.__y = args[num]
+        elif len(kwargs) > 0:
+            for k, v in kwargs):
                 if num == 0:
                     self.id = args[num]
                 elif num == 1:
