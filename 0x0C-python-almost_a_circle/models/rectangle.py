@@ -116,3 +116,14 @@ class Rectangle(b.Base):
             The value of the area computation for an instance.
         """
         return (self.__width * self.__height)
+
+    def display(self):
+        """This method displays the shape of a rectangle based on an
+        instance's value for both width and height attributes,
+        using # for the drawing."""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                if j+1 == self.__width:
+                    print("#")
+                else:
+                    print("#", end="")
