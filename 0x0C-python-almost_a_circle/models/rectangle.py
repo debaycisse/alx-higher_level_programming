@@ -141,3 +141,28 @@ class Rectangle(b.Base):
         return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
                                                 self.id, self.x, self.y,
                                                 self.width, self.height)
+
+    def update(self, *args):
+        """This method updates the values of all the five attributes
+        of an instance of this class.
+
+        Args:
+            args: is a list of all the attributes. It might contain all
+            the five attributes or few of the five attributes
+        """
+        if len(args) > 0:
+            for num in range(len(args)):
+                if num == 0:
+                    self.id = args[num]
+                elif num == 1:
+                    super().integer_validator("width", args[num])
+                    self.__width = args[num]
+                elif num == 2:
+                    super().integer_validator("height", args[num])
+                    self.__height = args[num]
+                elif num == 3:
+                    super().integer_validator("x", args[num])
+                    self.__x = args[num]
+                elif num == 4:
+                    super().integer_validator("y", args[num])
+                    self.__y = args[num]
