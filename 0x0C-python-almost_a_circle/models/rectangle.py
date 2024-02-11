@@ -166,19 +166,19 @@ class Rectangle(b.Base):
                 elif num == 4:
                     super().integer_validator("y", args[num])
                     self.__y = args[num]
-        elif len(kwargs) > 0:
-            for k, v in kwargs):
-                if num == 0:
-                    self.id = args[num]
-                elif num == 1:
-                    super().integer_validator("width", args[num])
-                    self.__width = args[num]
-                elif num == 2:
-                    super().integer_validator("height", args[num])
-                    self.__height = args[num]
-                elif num == 3:
-                    super().integer_validator("x", args[num])
-                    self.__x = args[num]
-                elif num == 4:
-                    super().integer_validator("y", args[num])
-                    self.__y = args[num]
+        elif len(kwargs) > 0 and len(args) == 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    self.id = v
+                elif k == "width":
+                    super().integer_validator("width", v)
+                    self.__width = v 
+                elif k == "height":
+                    super().integer_validator("height", v)
+                    self.__height = v
+                elif k == "x":
+                    super().integer_validator("x", v)
+                    self.__x = v
+                elif k == "y":
+                    super().integer_validator("y", v)
+                    self.__y = v
