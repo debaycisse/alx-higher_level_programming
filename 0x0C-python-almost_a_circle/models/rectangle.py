@@ -172,7 +172,7 @@ class Rectangle(b.Base):
                     self.id = v
                 elif k == "width":
                     super().integer_validator("width", v)
-                    self.__width = v 
+                    self.__width = v
                 elif k == "height":
                     super().integer_validator("height", v)
                     self.__height = v
