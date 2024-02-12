@@ -40,3 +40,21 @@ class Base:
         elif name == "x" or name == "y":
             if value < 0:
                 raise ValueError("{} must be >= 0".format(name))
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """This method converts a data from a python
+        dictionary to a JSON format.
+
+        Args:
+            list_dictionaries: the data to be converted to JSON format
+
+        Returns:
+            The JSON equivalent of the given list of a python dictionary.
+            Empty list is returned if the given list of dictionary is empty.
+        """
+        if len(list_dictionaries) <= 0:
+            return "[]"
+        elif len(list_dictionaries) > 0:
+            import json
+            return json.dumps(list_dictionaries)
