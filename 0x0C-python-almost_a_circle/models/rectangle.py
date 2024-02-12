@@ -182,3 +182,14 @@ class Rectangle(b.Base):
                 elif k == "y":
                     super().integer_validator("y", v)
                     self.__y = v
+
+    def to_dictionary(self):
+        """This method returns the representation of an instance in
+        a ditionary format, containing id, width, height, x, and y.
+
+        Returns:
+            The representation of an instance of this class, containing
+            the following id, width, height, x, and y.
+        """
+        return {"x": self.__x, "y": self.__y, "id": self.id,
+                "height": self.__height, "width": self.__width}
