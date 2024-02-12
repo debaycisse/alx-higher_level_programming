@@ -86,3 +86,12 @@ class Square(r.Rectangle):
                 elif k == "y":
                     super().integer_validator("y", v)
                     self.y = v
+
+    def to_dictionary(self):
+        """This method converts the attributes of an instance of
+        this class to a dictionary format and return the same.
+
+        Returns:
+            The representation of an instance in dictionary format.
+        """
+        return {"id": self.id, "x": self.x, "size": self.width, "y": self.y}
