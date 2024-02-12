@@ -34,3 +34,20 @@ class Square(r.Rectangle):
         return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
                                              self.id, self.x, self.y,
                                              self.width)
+
+    @property
+    def size(self):
+        """This method obtains and returns the value of the size for an
+        instance of this class
+        """
+        return (self.width)
+
+    @size.setter
+    def size(self, value):
+        """This method updates the value of the size with a given value.
+
+        Args:
+            value: the value with which the value of size is updated.
+        """
+        super().integer_validator("width", value)
+        self.width = value
