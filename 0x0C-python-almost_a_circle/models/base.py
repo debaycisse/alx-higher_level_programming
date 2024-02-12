@@ -89,3 +89,20 @@ class Base:
                 for obj in list_objs:
                     data.append(obj.to_dictionary())
                 file_.write(cls.to_json_string(data))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """This method converts a JSON string to a list of
+        python dictionary or dictionaries.
+
+        Args:
+            json_string: the JSON string to be converted to
+            a list of python dictionary or dictionaries.
+
+        Returns:
+            The list of python dictionary or dictionaries
+        """
+        if len(json_string) == 0:
+            return "[]"
+        elif len(json_string) > 0:
+            return json.loads(json_string)
