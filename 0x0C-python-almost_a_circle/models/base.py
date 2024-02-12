@@ -106,3 +106,27 @@ class Base:
             return "[]"
         elif len(json_string) > 0:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """This method creates and returns an instance with all
+        attributes, already set.
+
+        Args:
+            dictionary: the attributes to use in creating an instance.
+
+        Returns:
+            the created instance is returned.
+        """
+        if len(dictionary) > 0:
+            dummy = cls(1, 1)
+            dummy.update(
+                         id = dictionary["id"] if dictionary["id"] else None,
+                         width = dictionary["width"],
+                         height = dictionary["height"],
+                         x = dictionary["x"] if dictionary["x"] else 0,
+                         y = dictionary["y"] if dictionary["y"] else 0
+                        )
+            return dummy
+        elif len(dictionary) == 0:
+            return 
