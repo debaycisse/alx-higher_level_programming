@@ -138,8 +138,12 @@ class Base:
         Returns:
             The list of instances of this class.
         """
-        with open(
-                  "{}.json".format(cls.__name__),
-                  "r", encoding="utf-8"
-                 ) as file:
-            
+        try:
+            with open(
+                      "{}.json".format(cls.__name__),
+                      "r", encoding="utf-8"
+                     ) as file:
+                data = from_json_string(file.read())
+                return cls.create(data)
+        except Exception as e:
+            return list()
