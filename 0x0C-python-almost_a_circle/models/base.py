@@ -129,4 +129,17 @@ class Base:
                         )
             return dummy
         elif len(dictionary) == 0:
-            return 
+            return None
+
+    @classmethod
+    def load_from_file(cls):
+        """This method returns a list of instances.
+
+        Returns:
+            The list of instances of this class.
+        """
+        with open(
+                  "{}.json".format(cls.__name__),
+                  "r", encoding="utf-8"
+                 ) as file:
+            
