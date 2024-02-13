@@ -9,7 +9,7 @@ import sys
 import unittest
 
 
-sys.path.append("{}/../../".format(os.getcwd()))
+sys.path.append("{}/../../../".format(os.getcwd()))
 
 
 def setUpModule():
@@ -48,3 +48,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
         self.assertEqual(b3.id, 3)
+
+if __name__ == '__main__':
+    unittest.main()
