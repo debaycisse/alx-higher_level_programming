@@ -187,3 +187,18 @@ class TestRectangle(unittest.TestCase):
         except Exception as e:
             pass
         Base.reset_class()
+
+    def test_to_dictionary_method(self):
+        """This tests that the format a dictionary
+        representation of an is returned.
+        """
+        r = Rectangle(4, 5, 6, 7, 8)
+        r_dict = r.to_dictionary()
+        self.assertEqual(
+                         {'x': 6, 'y': 7, 'id': 8, 'height': 5, 'width': 4},
+                         r_dict)
+        self.assertTrue(isinstance(r_dict, dict))
+
+    def test_
+
+    
