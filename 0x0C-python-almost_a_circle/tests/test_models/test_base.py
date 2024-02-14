@@ -9,12 +9,8 @@ import sys
 import unittest
 
 
-sys.path.append("{}/../../../".format(os.getcwd()))
-
-
-def setUpModule():
-    """This function sets up the needed environment for the tests"""
-    from models.base import Base
+sys.path.append(os.getcwd())
+from models.base import Base
 
 
 class TestBase(unittest.TestCase):
@@ -23,6 +19,7 @@ class TestBase(unittest.TestCase):
     def test_no_id(self):
         """This method tests that an instance without an id attribute
         can be created."""
+        print(sys.path)
         b = Base()
         self.assertTrue(b.id == 1)
 
@@ -48,6 +45,3 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
         self.assertEqual(b3.id, 3)
-
-if __name__ == '__main__':
-    unittest.main()

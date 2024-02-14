@@ -8,12 +8,9 @@ import sys
 import unittest
 
 
-sys.path.append("{}/../../".format(os.getcwd()))
-
-
-def setUpModule():
-    """This sets up the environment to locate models module for the tests"""
-    from models.rectangle import Rectangle
+sys.path.append(os.getcwd())
+from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -44,8 +41,8 @@ class TestRectangle(unittest.TestCase):
         r1.height = 30
         r1.x = 40
         r1.y = 50
-        selt.assertEqual(r1.width, 20)
-        selt.assertEqual(r1.height, 30)
+        self.assertEqual(r1.width, 20)
+        self.assertEqual(r1.height, 30)
         selt.assertEqual(r1.x, 40)
         selt.assertEqual(r1.y, 50)
 

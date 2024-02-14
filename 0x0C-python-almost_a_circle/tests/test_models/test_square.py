@@ -9,12 +9,9 @@ import sys
 import unittest
 
 
-def setUpModule():
-    """This sets up the environment for the import to the
-    Square class to take place.
-    """
-    sys.path.append("{}/../../".format(os.getcwd()))
-    from models.square import Square
+sys.path.append(os.getcwd())
+from models.square import Square
+from models.rectangle import Rectangle
 
 
 class TestSquare(unittest.TestCase):
