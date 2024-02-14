@@ -71,6 +71,7 @@ class Rectangle(b.Base):
             value: the value with which the value of the height is updated.
         """
         super().integer_validator("height", value)
+        self.__height = value
 
     @property
     def x(self):
@@ -90,6 +91,7 @@ class Rectangle(b.Base):
             x attribute is updated.
         """
         super().integer_validator("x", value)
+        self.__x = value
 
     @property
     def y(self):
@@ -108,6 +110,7 @@ class Rectangle(b.Base):
             value: the value with which the value of y is updated.
         """
         super().integer_validator("y", value)
+        self.__y = value
 
     def area(self):
         """This method computes the area of an instance of this class.

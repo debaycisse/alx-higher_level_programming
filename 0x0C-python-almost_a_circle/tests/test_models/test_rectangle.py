@@ -9,14 +9,21 @@ import unittest
 
 
 sys.path.append(os.getcwd())
-from models.rectangle import Rectangle
-from models.base import Base
+try:
+    from models.rectangle import Rectangle
+    from models.base import Base
+except Exception as e:
+    print(e)
 
 
 class TestRectangle(unittest.TestCase):
     """This class contains a number of test cases to validate that the
     workings of the Rectangle class meets the requirement.
     """
+
+    def setUp(self):
+        """This sets up every tests before running them"""
+        Base.reset_class()
 
     def test_the_parent_of_rectangle(self):
         """This tests that the rectanngle is an instance of the Base class"""
@@ -43,8 +50,8 @@ class TestRectangle(unittest.TestCase):
         r1.y = 50
         self.assertEqual(r1.width, 20)
         self.assertEqual(r1.height, 30)
-        selt.assertEqual(r1.x, 40)
-        selt.assertEqual(r1.y, 50)
+        self.assertEqual(r1.x, 40)
+        self.assertEqual(r1.y, 50)
 
     def test_constructor_default_value(self):
         """This test the default value of some attributes
@@ -61,7 +68,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.height, 6)
         self.assertEqual(r2.x, 9)
         self.assertEqual(r2.y, 12)
-        self.assertEqual(r1.id, 15)
+        self.assertEqual(r2.id, 15)
 
     def test_non_integer_values(self):
         """This tests that type error is raised for non-integer values."""
@@ -126,19 +133,15 @@ class TestRectangle(unittest.TestCase):
         an instance in an orderly fashion using the args only.
         """
         r = Rectangle(2, 3, 4, 5, 6)
-        self.assertEqual(r.id, 2)
-        self.assertEqual(r.width, 3)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 5)
-        self.assertEqual(r.y, 6)
+        self.assertEqual(r.id, 6)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 5)
         r.update(111)
         self.assertEqual(r.id, 111)
-        self.assertEqual(r.width, 3)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 5)
-        self.assertEqual(r.y, 6)
-        r.update(111, 30, 40, 50, 60)
-        self.assertEqual(r.id, 111)
+        r.update(222, 30, 40, 50, 60)
+        self.assertEqual(r.id, 222)
         self.assertEqual(r.width, 30)
         self.assertEqual(r.height, 40)
         self.assertEqual(r.x, 50)
@@ -150,20 +153,37 @@ class TestRectangle(unittest.TestCase):
         order, using the kwargs only.
         """
         r = Rectangle(2, 3, 4, 5, 6)
-        self.assertEqual(r.id, 2)
-        self.assertEqual(r.width, 3)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 5)
-        self.assertEqual(r.y, 6)
+        self.assertEqual(r.id, 6)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 5)
         r.update(id=111)
         self.assertEqual(r.id, 111)
-        self.assertEqual(r.width, 3)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 5)
-        self.assertEqual(r.y, 6)
         r.update(y=60, height=40, id=258, x=50, width=30)
         self.assertEqual(r.id, 258)
         self.assertEqual(r.width, 30)
         self.assertEqual(r.height, 40)
         self.assertEqual(r.x, 50)
         self.assertEqual(r.y, 60)
+
+    def tearDown(self):
+        """This resets the value of the class variable for each test
+        to start on a clean slate.
+        """
+        try:
+            if r:
+                del r
+        except Exception as e:
+            pass
+        try:
+            if r1:
+                del r1
+        except Exception as e:
+            pass
+        try:
+            if r2:
+                del r2
+        except Exception as e:
+            pass
+        Base.reset_class()

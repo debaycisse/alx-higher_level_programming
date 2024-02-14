@@ -10,11 +10,18 @@ import unittest
 
 
 sys.path.append(os.getcwd())
-from models.base import Base
+try:
+    from models.base import Base
+except Exception as e:
+    print(e)
 
 
 class TestBase(unittest.TestCase):
     """This class contains a set of test cases for the Base class."""
+
+    def setUp(self):
+        """This sets up the environment for each test case"""
+        Base.reset_class()
 
     def test_no_id(self):
         """This method tests that an instance without an id attribute
@@ -45,3 +52,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
         self.assertEqual(b3.id, 3)
+
+    def tearDown(self):
+        Base.reset_class()

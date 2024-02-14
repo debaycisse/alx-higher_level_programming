@@ -10,14 +10,22 @@ import unittest
 
 
 sys.path.append(os.getcwd())
-from models.square import Square
-from models.rectangle import Rectangle
+try:
+    from models.square import Square
+    from models.rectangle import Rectangle
+    from models.base import Base
+except Exception as e:
+    print(e)
 
 
 class TestSquare(unittest.TestCase):
     """This class contains a set of test cases that validate
     the requirement of the square class.
     """
+
+    def setUp(self):
+        """This sets up every tests before running them"""
+        Base.reset_class()
 
     def test_square_type(self):
         """This tests that an instance is inheriting from
@@ -74,6 +82,17 @@ class TestSquare(unittest.TestCase):
         match up with the requirements.
         """
         s = Square(3)
-        self.assertEqual(str(s), "[{}] {} {}/{} - {}".format(
+        self.assertEqual(str(s), "[{}] ({}) {}/{} - {}".format(
                                   s.__class__.__name__, s.id,
                                   s.x, s.y, s.size))
+
+    def tearDown(self):
+        """This resets the value of the class variable for each test
+        to start on a clean slate.
+        """
+        Base.reset_class()
+        try:
+            if s:
+                del s
+        except Exception as e:
+            pass

@@ -121,11 +121,11 @@ class Base:
         if len(dictionary) > 0:
             dummy = cls(1, 1)
             dummy.update(
-                         id = dictionary["id"] if dictionary["id"] else None,
-                         width = dictionary["width"],
-                         height = dictionary["height"],
-                         x = dictionary["x"] if dictionary["x"] else 0,
-                         y = dictionary["y"] if dictionary["y"] else 0
+                         id=dictionary["id"] if dictionary["id"] else None,
+                         width=dictionary["width"],
+                         height=dictionary["height"],
+                         x=dictionary["x"] if dictionary["x"] else 0,
+                         y=dictionary["y"] if dictionary["y"] else 0
                         )
             return dummy
         elif len(dictionary) == 0:
@@ -147,3 +147,10 @@ class Base:
                 return cls.create(data)
         except Exception as e:
             return list()
+
+    @staticmethod
+    def reset_class():
+        """This is used for testing purpose only.
+        It resets the value of the __nb_objects to zero after test.
+        """
+        Base.__nb_objects = 0
