@@ -79,4 +79,6 @@ class TestBase(unittest.TestCase):
                       {'id': 7, 'width': 1, 'height': 7}
                      ]
         
-        s = Square(
+        r_json_string = Rectangle.to_json_string(list_input)
+        r_python_form = Rectangle.from_json_string(r_json_string)
+        self.assertEqual(list_input, r_python_form)

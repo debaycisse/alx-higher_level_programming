@@ -198,7 +198,3 @@ class TestRectangle(unittest.TestCase):
                          {'x': 6, 'y': 7, 'id': 8, 'height': 5, 'width': 4},
                          r_dict)
         self.assertTrue(isinstance(r_dict, dict))
-
-    def test_
-
-    

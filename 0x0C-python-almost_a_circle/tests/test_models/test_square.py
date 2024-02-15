@@ -201,7 +201,3 @@ class TestSquare(unittest.TestCase):
                          {'id': 6, 'x': 22, 'size': 33, 'y': 11},
                          s_dict)
         self.assertTrue(isinstance(s_dict, dict))
-
-    def test_to_json_method(self):
-        """This tests that to_json method returns the correct data"""
-        
