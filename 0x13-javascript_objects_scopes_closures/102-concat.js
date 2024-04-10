@@ -5,7 +5,7 @@ for (let i = 2; i < 4; i++) {
     if (error) {
       console.log(error);
     } else {
-      fileSystem.appendFile(process.argv[4], content + '\n', function (error) {
+      fileSystem.appendFile(process.argv[4], content, function (error) {
         if (error) {
           console.log(error);
         }
