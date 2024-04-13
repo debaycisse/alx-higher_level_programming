@@ -12,3 +12,5 @@ if __name__ == '__main__':
     cur.execute("SELECT id, name FROM states ORDER BY id")
     for row in cur.fetchall():
         print(row)
+    cur.close()
+    conn.close()
