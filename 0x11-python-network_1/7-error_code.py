@@ -10,4 +10,4 @@ if __name__ == '__main__':
     if resp.status_code >= 400:
         print('Error code: {}'.format(resp.code))
     else:
-        print(resp.text)
+        print(resp.raw.read())
